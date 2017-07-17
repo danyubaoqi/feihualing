@@ -1,5 +1,5 @@
 from wxpy import *
-
+from random import shuffle
 kaishi = 0
 bot = Bot(cache_path=True)
 fhlG = bot.groups().search("飞花令")[0]
@@ -27,7 +27,8 @@ def chushihua():
 
 
 def help_FHL(msg):
-    global number,zi,kaishi
+    global number,zi,kaishi,data
+    data=shuffle(data)
     if kaishi==1:
         number-=1
         for i in data:
@@ -44,6 +45,7 @@ def start_FHL(juzi, msg):
     global number, kaishi, zi
     if isShi(juzi)==0:
         msg.reply("大笨蛋，这不是诗")
+        return 0
     if number == 1:
         zi = juzi[0]
     elif zi != juzi[number - 1]:
