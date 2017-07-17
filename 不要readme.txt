@@ -12,3 +12,4 @@ fhlG = bot.friends().search("飞花令")[0]
 运行程序的现实二维码，微信扫描登陆，对手机客户端的登录状态无影响，但是如果手机微信登出，则程序也会显示登出需重新登录
 了解itchat，请访问 http://itchat.readthedocs.io/zh/latest/
 了解wxpy，请访问 https://github.com/youfou/wxpy
+所有诗词都在data3.txt
