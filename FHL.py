@@ -43,9 +43,6 @@ def help_FHL(msg):
 
 def start_FHL(juzi, msg):
     global number, kaishi, zi
-    if isShi(juzi)==0:
-        msg.reply("大笨蛋，这不是诗")
-        return 0
     if number == 1:
         zi = juzi[0]
     elif zi != juzi[number - 1]:
@@ -60,6 +57,7 @@ def start_FHL(juzi, msg):
             if (i not in zanshi1):
                 zanshi1.append(i)
                 msg.reply(str(i))
+                zanshi1.append(juzi)
             number += 2
             break
 
