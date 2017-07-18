@@ -1,5 +1,6 @@
 from wxpy import *
 from random import shuffle
+
 kaishi = 0
 bot = Bot(cache_path=True)
 fhlG = bot.groups().search("飞花令")[0]
@@ -10,12 +11,12 @@ opFile = open("data3.txt", "r", encoding="utf-8")
 data = opFile.readlines()
 opFile.close()
 
+
 def isShi(juzi):
     for i in data:
-        if juzi==i or juzi in i:
+        if juzi == i or juzi in i:
             return 1
     return 0
-
 
 
 def chushihua():
@@ -27,10 +28,10 @@ def chushihua():
 
 
 def help_FHL(msg):
-    global number,zi,kaishi,data
-    data=shuffle(data)
-    if kaishi==1:
-        number-=1
+    global number, zi, kaishi, data
+    data = shuffle(data)
+    if kaishi == 1:
+        number -= 1
         for i in data:
             if len(i) > 2 and number < len(i) and i[number] == zi:
                 if (i not in zanshi1):
@@ -40,6 +41,7 @@ def help_FHL(msg):
                 break
     else:
         msg.reply("伦家让你先说嘛")
+
 
 def start_FHL(juzi, msg):
     global number, kaishi, zi
@@ -62,8 +64,6 @@ def start_FHL(juzi, msg):
             break
 
 
-
-
 def function_find(txt, msg):
     global kaishi, number, zanshi1
     print(msg)
@@ -73,11 +73,11 @@ def function_find(txt, msg):
     elif txt == "终止":
         chushihua()
         msg.reply("飞花令已终止")
+    elif txt == "帮助":
+        help_FHL(msg)
     elif kaishi == 1:
         juzi = txt
         start_FHL(juzi, msg)
-    elif txt=="帮助":
-        help_FHL(msg)
 
 
 @bot.register()
